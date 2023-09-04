@@ -122,19 +122,6 @@ class _HomePageState extends State<HomePage> {
                       color: const Color.fromRGBO(39, 43, 51, 100),
                       textColor: Colors.white,
                     );
-                  }
-                  //percentage button
-                  else if (index == buttons.length - 17) {
-                    return MyButton(
-                      buttonTapped: () {
-                        setState(() {
-                          equalPressed2();
-                        });
-                      },
-                      buttonText: buttons[index],
-                      color: const Color.fromRGBO(39, 43, 51, 100),
-                      textColor: Colors.white,
-                    );
                   } else if (index == 1) {
                     return MyButton(
                       buttonTapped: () {
