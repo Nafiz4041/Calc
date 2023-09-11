@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
     '2',
     '1',
     '+',
-    '00',
+    '|',
     '0',
     '.',
     '=',
@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Color.fromARGB(156, 0, 0, 0),
         body: Column(children: <Widget>[
@@ -163,7 +164,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   bool isOperator(String x) {
-    if (x == '%' || x == '/' || x == 'x' || x == '-' || x == '+' || x == '=') {
+    if (x == '%' ||
+        x == '/' ||
+        x == '|' ||
+        x == 'x' ||
+        x == '-' ||
+        x == '+' ||
+        x == '=') {
       return true;
     }
     return false;
@@ -176,6 +183,9 @@ class _HomePageState extends State<HomePage> {
     // Check for '%' and replace it with '/100'
     if (finalquestion.contains('%')) {
       finalquestion = finalquestion.replaceAll('%', '/100');
+    }
+    if (finalquestion.contains('|')) {
+      finalquestion = finalquestion.replaceAll('|', '%');
     }
 
     Parser p = Parser();
